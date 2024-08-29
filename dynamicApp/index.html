@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="bg-success text-center text-light p-2">Plant Shop</h1>
+
+        <div class="row justify-content-around" id="rowData">
+
+        </div>
+
+
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js " integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz " crossorigin="anonymous "></script>
+
+
+        <script src="js/data.js "></script>
+
+        <script>
+            const myRow = document.getElementById("rowData");
+            // console.log(plantsData);
+            // const abc = () => {};
+            plantsData.map((plant) => {
+                // console.log(plant.id);
+                // console.log(plant.name);
+
+                const card = `<div class="card mt-3" style="width: 18rem;">
+                <div class="text-center  ">
+                    <img src="${plant.image[0]}" class="card-img-top " alt="... " style="height:200px;width:200px">
+                    </div>
+                <div class="card-body ">
+                    <h5 class="card-title ">${plant.name}</h5>
+                    <p class="card-text ">${plant.description}</p>
+                    <a href="detail.html?prodId=${plant.id}" class="btn btn-primary">Details</a>
+                </div>
+            </div>`;
+
+                myRow.innerHTML += card;
+
+
+            })
+        </script>
+
+</body>
+
+</html>
