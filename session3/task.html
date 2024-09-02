@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task</title>
+</head>
+
+<body>
+
+    <h2>Lets Count</h2>
+
+    <button onclick="btnStart()">Start</button> |
+    <b id="myvalue">0</b> |
+    <button onclick="btnEnd()">End</button>
+
+</body>
+
+
+<script>
+    var myinterval;
+    var count = 1;
+
+    function btnStart() {
+        console.log('start');
+
+        var count = 1;
+
+        function IncCount() {
+            document.getElementById('myvalue').innerHTML = count;
+            count++;
+        }
+        myinterval = setInterval(IncCount, 1000);
+    }
+
+    function btnEnd() {
+        console.log('end');
+        clearInterval(myinterval);
+    }
+</script>
+
+</html>
