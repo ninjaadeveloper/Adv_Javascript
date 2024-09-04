@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API</title>
+</head>
+
+<body>
+
+
+    <table border="1">
+        <tr>
+            <th>S.No</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Education</th>
+            <th>Gender</th>
+        </tr>
+        <tbody id="mytable">
+
+        </tbody>
+    </table>
+
+</body>
+
+<script>
+    /* async function logic() {
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    console.log('A');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    await console.log('B');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    console.log('C');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                }
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                logic().then((answer) => console.log(answer)).catch((error) => console.log(error))
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                console.log('D');
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                console.log('E');
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+    async function getUsers() {
+        var res = await fetch('https://dummyjson.com/users');
+        var data = await res.json();
+        return data;
+
+    }
+
+    // console.log(getUsers());
+    getUsers()
+        .then((myresponse) => {
+            // console.log(myresponse.users[0].firstName)
+            console.log(myresponse.users[0])
+            myresponse.users.map((mydata) => {
+                // document.write(mydata.id, ' | ', mydata.firstName, ' | ', mydata.age, ' | ', mydata.university, ' | ', mydata.gender, '<br>')
+
+                let row = `<tr>
+                            <td>${mydata.id}</td>
+                            <td>${mydata.firstName}</td>
+                            <td>${mydata.age}</td>
+                            <td>${mydata.university}</td>
+                            <td>${mydata.gender}</td>
+                       </tr>`;
+
+                document.getElementById('mytable').innerHTML += row;
+
+
+
+
+            })
+
+
+        })
+        .catch((error) => {
+            console.log(error)
+        });
+</script>
+
+</html>
