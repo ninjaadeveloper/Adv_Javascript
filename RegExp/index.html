@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patterns & Matcher</title>
+</head>
+
+<body>
+    <label for="password">Password: </label>
+    <input type="text" id="password">
+    <button onclick="checkPassword()">Check Password</button>
+
+</body>
+
+<script>
+    function checkPassword() {
+        let pass = document.getElementById('password').value;
+        var passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+        let result = passwordRegex.test(pass) //true //false
+
+        if (result) {
+            alert('Password pattern is correct')
+        } else {
+            alert('Password pattern is incorrect')
+
+        }
+
+
+    }
+</script>
+
+</html>
+
+</html>
